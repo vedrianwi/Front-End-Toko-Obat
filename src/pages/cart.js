@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Table, Button } from 'reactstrap';
+import { Table, Button, Spinner } from 'reactstrap';
 
 //import actions
 import {
@@ -13,7 +13,6 @@ import {
     deleteAction,
     getCartKimia,
     deleteActionKimia,
-
 } from '../actions'
 
 class CartPage extends React.Component {
@@ -23,6 +22,7 @@ class CartPage extends React.Component {
             selectedId: null,
             quantity: 0,
             total: null,
+            status: false
         }
     }
 
@@ -68,7 +68,6 @@ class CartPage extends React.Component {
     }
 
     buttonCheckout = () => {
-
         console.log('checkout')
         this.props.checkOutAction(this.props.orderNumb)
     }
@@ -84,8 +83,6 @@ class CartPage extends React.Component {
                 <tr>
                     <th>No</th>
                     <th>Nama Barang</th>
-                    <th>Quantity</th>
-                    <th>Harga</th>
                     <th>Total</th>
                     <th>Action</th>
                 </tr>
@@ -100,8 +97,6 @@ class CartPage extends React.Component {
                 <tr>
                     <th>No</th>
                     <th>Nama Barang</th>
-                    <th>Quantity</th>
-                    <th>Harga</th>
                     <th>Total</th>
                     <th>Action</th>
                 </tr>
@@ -124,6 +119,7 @@ class CartPage extends React.Component {
             )
         })
     }
+
 
 
     renderTableBody = () => {
@@ -164,26 +160,42 @@ class CartPage extends React.Component {
 
 
     render() {
-        console.log(this.props.cart_kimia)
-        return (
-            <div>
-                <div style={{ display: "flex" }}>
-                    <Table className="col-6" style={{ backgroundColor: 'black', color: 'white' }}>
-                        {this.renderTableHead()}
-                        {this.renderTableBody()}
-                    </Table>
-                    <Table className="col-6" style={{ backgroundColor: 'black', color: 'white' }}>
-                        {this.renderTableKimia()}
-                        {this.renderBodyKimia()}
-                    </Table>
-                </div>
+        const { match } = this.props
+        setTimeout(() => this.setState({ ready: true }), 1500)
+        if (this.state.ready) {
+
+            return (
+                <div>
+                    <div style={{ display: "flex" }}>
+                        <Table className="col-6" style={{ backgroundColor: 'black', color: 'white' }}>
+                            {this.renderTableHead()}
+                            {this.renderTableBody()}
+                        </Table>
+                        <Table className="col-6" style={{ backgroundColor: 'black', color: 'white' }}>
+                            {this.renderTableKimia()}
+                            {this.renderBodyKimia()}
+                        </Table>
+                    </div>
                     <Link to="/checkout">
                         <Button style={{ marginTop: 200 }} onClick={this.buttonCheckout}>CheckOut</Button>
                     </Link>
-                <h2>Total : {this.props.total}</h2>
+                    <h2>Total : {this.props.total}</h2>
+                </div>
+            );
+        } else {
+            return (
+                <div style={{ marginLeft: '32vw', marginTop: '20vh', marginBottom: '40vh' }}>
 
-            </div>
-        );
+                    <Spinner type="grow" color="primary" style={{ width: '10vh', height: '5vw' }} />
+                    <Spinner type="grow" color="secondary" style={{ width: '10vh', height: '5vw' }} />
+                    <Spinner type="grow" color="success" style={{ width: '10vh', height: '5vw' }} />
+                    <Spinner type="grow" color="danger" style={{ width: '10vh', height: '5vw' }} />
+                    <Spinner type="grow" color="warning" style={{ width: '10vh', height: '5vw' }} />
+                    <Spinner type="grow" color="info" style={{ width: '10vh', height: '5vw' }} />
+                    <Spinner type="grow" color="dark" style={{ width: '10vh', height: '5vw' }} />
+                </div>
+            )
+        }
     }
 }
 

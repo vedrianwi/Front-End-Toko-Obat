@@ -18,6 +18,8 @@ class Checkoutpage extends React.Component {
         }
     }
 
+    
+
     buttonBca = () => {
         console.log('okbca')
         this.setState({ payment: 1})
@@ -87,19 +89,6 @@ class Checkoutpage extends React.Component {
                         <CardImg src={Paypal} style={{ width: '9vw', height: '6vh' }} /> 
                         </Link>   
                         </Button>
-                </div>
-                <div className="p-3  my-2 rounded"  style={{marginTop:'10vh', height: '15vh', display:'flex', backgroundColor:'#39b4ea'}}>
-                    <Toast>
-                       
-                        <ToastBody style={{fontSize:'25px'}}>
-                           Alamat
-          </ToastBody>
-                    </Toast>
-                    <Form style={{marginLeft:'5vw'}}>
-      <FormGroup >
-        <Input type="email" name="email" id="exampleEmail" placeholder="Alamat" style={{height:'6vh', width:'30vw', marginTop:'1.5vh'}} />
-      </FormGroup>
-      </Form>
                 </div>
                 <div className="p-3 bg-info my-2 rounded" style={{ marginTop: '10vh', height: '15vh', display: 'flex' }}>
                     <h1>TOTAL : {this.props.total} </h1>

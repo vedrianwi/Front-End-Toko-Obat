@@ -44,14 +44,15 @@ class Stockpage extends React.Component {
         )
     }
 
-    handleOk = (id) => {
+    handleOk = async (id) => {
         const body = {
             stock: this.botol.value,
             id: id
         }
         console.log(body)
-        this.props.addStock(body)
-        this.setState({ selectedId: null })
+        await this.props.addStock(body)
+        await this.props.getUpdateStock()
+        await this.setState({ selectedId: null })
     }
 
     renderTableBody = () => {

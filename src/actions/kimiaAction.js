@@ -28,7 +28,7 @@ export const getAntibiotik = () => {
 export const addStock = (body) => {
     return async(dispatch) =>{
         try {
-            const res = await Axios.patch(URL + '/editkimia/' + body.id, body)
+            const res = await Axios.put(URL + '/editkimia/' + body.id, body)
             dispatch({type : ADD_STOCK})
         } catch (err) {
             console.log(err)

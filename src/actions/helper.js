@@ -7,6 +7,7 @@ export const REGISTER = 'REGISTER'
 export const LOGOUT = 'LOGOUT'
 export const GET_PROFILE = 'GET_PROFILE'
 export const EDIT_PROFILE = '   EDIT_PROFILE'
+export const USER_HISTORY = 'USER_HISTORY'
 
 
 //kategori obat
@@ -30,6 +31,7 @@ export const CART_END ='CART_END'
 export const EDIT_CART = 'EDIT_CART'
 export const DELETE_CART = 'DELETE_CART'
 export const DELETE_KIMIA = "DELETE_KIMIA"
+
 // edit qty
 export const PLUS = "PLUS"
 export const MINUS = "MINUS"

@@ -63,7 +63,6 @@ class Productdetailpage extends React.Component {
 
     renderCardDetail = () => {
         const { nama, image, deskripsi, komposisi, aturan_pakai, dosis, harga, category } = this.state.product
-        // return this.state.product.map((item, index) => {
         return (
             <div style={{ marginBottom: '10vh' }}>
 
@@ -103,9 +102,7 @@ class Productdetailpage extends React.Component {
                     </CardGroup>
                 </div>
             </div>
-
         )
-        // })
     }
 
     render() {

@@ -16,7 +16,6 @@ import Adminrouterpage from './pagesAdmin/adminRouter';
 import Checkoutpage from './pages/checkout';
 import Receiptpage from './pages/receipt';
 import RiwayatTransaksipage from './pages/historyUser';
-import Testpage from './pages/test';
 import { connect } from 'react-redux'
 
 import { KeepLogin } from './actions'
@@ -39,7 +38,7 @@ class App extends React.Component {
           <Route path='/admin' component={Adminrouterpage} />
           :
           <div>
-            <Navbarcomponent></Navbarcomponent>
+            <Navbarcomponent/>
             <Route path='/' component={Homepage} exact />
             <Route path='/beliobat' component={CategoryRouter} />
             <Route path='/daftar' component={Registerpage} />
@@ -52,9 +51,8 @@ class App extends React.Component {
             <Route path='/keranjang' component={Cartpage} />
             <Route path='/checkout' component={Checkoutpage} />
             <Route path='/resi' component={Receiptpage} />
-            <Route path='/test' component={Testpage} />
             <Route path='/riwayattransaksi' component={RiwayatTransaksipage} />
-            <Footercomponent></Footercomponent>
+            <Footercomponent/>
           </div>
         }
       </div>

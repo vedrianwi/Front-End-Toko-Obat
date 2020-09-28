@@ -21,13 +21,15 @@ class Pesananpage extends React.Component {
         this.setState({ selectedId: id })
     }
 
-    buttonAprrove = (id) => {
-        this.props.approvePayment(id, this.props.history)
-        this.setState({selectedId : null})
+    buttonAprrove = async(id) => {
+        await this.props.approvePayment(id, this.props.history)
+        await this.props.TransactionHistory()
+        await this.setState({selectedId : null})
     }
-    buttonReject = (id) => {
-        this.props.rejectPayment(id)
-        this.setState({selectedId : null})
+    buttonReject = async(id) => {
+        await this.props.rejectPayment(id)
+        await this.props.TransactionHistory()
+        await this.setState({selectedId : null})
     }
 
     modal = () => {

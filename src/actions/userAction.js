@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { URL, LOGIN , REGISTER, LOGOUT } from './helper'
+import { URL, LOGIN , REGISTER, LOGOUT, USER_HISTORY } from './helper'
 
 export const LoginAction = (body) => {
     return async(dispatch) => {
@@ -50,6 +50,17 @@ export const KeepLogin = () => {
             localStorage.removeItem('token')
             dispatch({ type : LOGOUT })
             console.log(err ? 'ERROR : ' + err.response.data : err )
+        }
+    }
+}
+
+export const UserHistory = () => {
+    return async(dispatch)=> {
+        try {
+            const res = await Axios.get(URL + '/user/history/' + localStorage.getItem('id') )
+            dispatch({type : USER_HISTORY, payload : res.data})
+        } catch (err){
+            console.log(err ? err.response.data : err)
         }
     }
 }

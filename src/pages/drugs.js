@@ -10,7 +10,7 @@ import {
   Label,
   Spinner
 } from 'reactstrap';
-import { Link } from 'react-router-dom'
+
 
 import { getProductKimia, getAntibiotik, cartKimia } from '../actions'
 
@@ -52,7 +52,6 @@ class Drugspage extends React.Component {
       <thead>
         <tr>
           <th>No</th>
-          <th>Jenis</th>
           <th>Nama</th>
           <th>Takaran</th>
           <th>Total Netto</th>
@@ -70,7 +69,6 @@ class Drugspage extends React.Component {
           <tbody>
             <tr>
               <th scope="row">{index + 1}</th>
-              <td>{item.jenis}</td>
               <td>{this.props.product[pIndex].nama_kimia}</td>
               <td>{this.props.product[tIndex].satuan}</td>
               <td>{item.total}</td>
