@@ -161,7 +161,7 @@ class CartPage extends React.Component {
 
     render() {
         const { match } = this.props
-        setTimeout(() => this.setState({ ready: true }), 4000)
+        setTimeout(() => this.setState({ ready: true }), 2000)
         if (this.state.ready) {
 
             return (

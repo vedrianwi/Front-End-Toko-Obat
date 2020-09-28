@@ -109,7 +109,7 @@ class Productdetailpage extends React.Component {
         console.log('URL PRODUCT DETAIL : ', this.props.location)
         console.log('product', this.state.product)
         const { match } = this.props
-        setTimeout(() => this.setState({ ready: true }), 1500)
+        setTimeout(() => this.setState({ ready: true }), 3000)
         if (this.state.ready) {
 
             return (
