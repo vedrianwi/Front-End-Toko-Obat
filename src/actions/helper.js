@@ -45,6 +45,7 @@ export const REJECTED = 'REJECTED'
 export const GET_HISTORY = "GET_HISTORY"
 export const GET_STOCK="GET_STOCK"
 export const ADD_STOCK="ADD_STOCK"
+export const HISTORY_RACIK = "HISTORY_RACIK"
 
 
 //productkimia

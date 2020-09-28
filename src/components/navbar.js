@@ -67,15 +67,12 @@ class Navbarcomponent extends React.Component {
                                     <h3>Berita</h3>
                                 </Link>
                             </NavItem>
-                            <Form inline style={{ marginLeft: '5vw' }}>
-                                <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
-                                <Button style={{ backgroundColor: '#e85661', textDecoration: 'none', borderColor: '#e85661' }}>Cari</Button>
-                            </Form>
+                            
 
                             {
                                 this.props.username ?
 
-                                    <UncontrolledDropdown nav inNavbar style={{ marginLeft: '5vw' }}>
+                                    <UncontrolledDropdown nav inNavbar style={{ marginLeft: '25vw' }}>
                                         <DropdownToggle nav caret>
                                             <h4 style={{ backgroundColor: 'none', color: '#e85661' }}>{this.props.username.charAt(0).toUpperCase()}</h4>
                                         </DropdownToggle>

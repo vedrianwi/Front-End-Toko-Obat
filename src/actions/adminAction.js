@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { GET_HISTORY, URL, GET_STOCK } from './helper'
+import { GET_HISTORY, URL, GET_STOCK, HISTORY_RACIK } from './helper'
 
 export const TransactionHistory = () => {
     return async(dispatch) => {
@@ -22,5 +22,17 @@ export const getUpdateStock = () => {
        } catch(err) {
             console.log(err)
        }
+    }
+}
+
+export const getHistoryRacik = () => {
+    return async(dispatch) => {
+        try {
+            const res = await Axios.get(URL + '/admin/history/kimia' )
+            console.log(res.data)
+            dispatch({type : HISTORY_RACIK, payload : res.data})
+        } catch (err) {
+            console.log(err)
+        }
     }
 }

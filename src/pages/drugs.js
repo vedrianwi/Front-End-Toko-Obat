@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 import {
   CardText,
   Card,
@@ -65,19 +66,19 @@ class Drugspage extends React.Component {
     return this.state.tempCart.map((item, index) => {
       let pIndex = this.props.product.findIndex(value => item.obat == value.id)
       let tIndex = this.props.product.findIndex(value => item.satuan == value.id)
-        return (
-          <tbody>
-            <tr>
-              <th scope="row">{index + 1}</th>
-              <td>{this.props.product[pIndex].nama_kimia}</td>
-              <td>{this.props.product[tIndex].satuan}</td>
-              <td>{item.total}</td>
-              <td>
-                <Button onClick={() => this.deleteButton(index)}>DELETE</Button>
-              </td>
-            </tr>
-          </tbody>
-        )
+      return (
+        <tbody>
+          <tr>
+            <th scope="row">{index + 1}</th>
+            <td>{this.props.product[pIndex].nama_kimia}</td>
+            <td>{this.props.product[tIndex].satuan}</td>
+            <td>{item.total}</td>
+            <td>
+              <Button onClick={() => this.deleteButton(index)}>DELETE</Button>
+            </td>
+          </tr>
+        </tbody>
+      )
     })
   }
 
@@ -138,7 +139,7 @@ class Drugspage extends React.Component {
   }
 
   render() {
-    setTimeout(() => this.setState({ ready: true }), 1500)
+    setTimeout(() => this.setState({ ready: true }), 4000)
     if (this.state.ready) {
       return (
         <div style={{ marginBottom: '40vh' }}>
@@ -169,25 +170,27 @@ class Drugspage extends React.Component {
                 </Input>
               </div>
               <FormGroup style={{ width: '10vw', marginTop: '5vh', marginLeft: '1vw' }}>
-              <Label for="exampleEmail">Total : ex. 12x minum</Label>
-              <Input type="email" name="dosis" placeholder="dosis" innerRef={(dosis) => this.dosis = dosis} />
-            </FormGroup>
+                <Label for="exampleEmail">Total : ex. 12x minum</Label>
+                <Input type="email" name="dosis" placeholder="dosis" innerRef={(dosis) => this.dosis = dosis} />
+              </FormGroup>
 
-            <Button style={{ marginTop: '5vh', marginBottom: '5vh', backgroundColor: 'black', width: '30vw', marginLeft: '5vw', borderRadius: '60px' }}
-              onClick={this.buttonAdd}>Tambah</Button>
-          </Card >
+              <Button style={{ marginTop: '5vh', marginBottom: '5vh', backgroundColor: 'black', width: '30vw', marginLeft: '5vw', borderRadius: '60px' }}
+                onClick={this.buttonAdd}>Tambah</Button>
+            </Card >
 
-          <Card style={{ width: '45vw' }}>
-            <Table dark style={{ width: '40vw', backgroundColor: 'black', color: 'white', marginLeft: '2.5vw' }}>
-              {this.renderTableHeader()}
-              {this.renderTableBody()}
-            </Table>
-         
-            <Button style={{ marginLeft: '8vw', width: '30vw', backgroundColor: 'black', borderRadius: '60px', marginTop: '15.5vh' }}
-              onClick={this.buttonProses}>Proses</Button>
-    
+            <Card style={{ width: '45vw' }}>
+              <Table dark style={{ width: '40vw', backgroundColor: 'black', color: 'white', marginLeft: '2.5vw' }}>
+                {this.renderTableHeader()}
+                {this.renderTableBody()}
+              </Table>
 
-          </Card>
+              <Link to="/keranjang">
+
+                <Button style={{ marginLeft: '8vw', width: '30vw', backgroundColor: 'black', borderRadius: '60px', marginTop: '15.5vh' }}
+                  onClick={this.buttonProses}>Proses</Button>
+              </Link>
+
+            </Card>
           </div>
         </div>
       );

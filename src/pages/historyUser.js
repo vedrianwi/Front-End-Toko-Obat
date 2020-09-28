@@ -33,7 +33,7 @@ class RiwayatTransaksipage extends React.Component {
             return (
                 <tbody>
                     <tr>
-                        <th scope="row" key={item.id}>{item.id}</th>
+                        <th scope="row" key={item.id}>{index + 1}</th>
                         <td>{item.order_number}</td>
                         <td>{item.type_payment}</td>
                         <td>{item.total}</td>
